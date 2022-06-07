@@ -4,5 +4,4 @@ Flask
 Flask-Session
 flask_session
 requests
-os
 tempfile

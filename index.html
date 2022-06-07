@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Página Inicial
+{% endblock %}
+
+{% block main %}
+    <h1>Itens mais demandados para doação</h1>
+    <h3>Destinados às vítimas das enchentes em Recife</h3>
+    <p class = "spasado"></p>
+    <p class = "text-start">
+        A seguir está a lista completa dos abrigos provisórios no Recife, assim como os
+        materiais mais necessitados em cada um.
+    </p>
+    <p class = "text-start">
+        Os dados são enviados diretamente por cada abrigo, diariamente.
+    </p>
+    <p class = "text-start">
+        Com essas informações, doadores poderão ajudar melhor as pessoas afetadas pelos desastres.
+    </p>
+    <p class = "spasado"></p>
+    <form action="/" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="bairro" placeholder="Pesquisa por Bairro" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Buscar</button>
+    </form>
+    <main class = "container py-5 text-center">
+            {% for abrigo in abrigos %}
+                <h2 class = "text-center" id = "titulo">{{abrigo.nome}}</h2>
+                <h3 class = "text-center" id = "bairro">{{abrigo.bairro}}</h3>
+                <table class = "table table-striped">
+                    <tr>
+                        <td class = "text-start">Item prioritário 1</td>
+                    </tr>
+                    <tr>
+                        <td class = "text-start">Item prioritário 2</td>
+                    </tr>
+                    <tr>
+                        <td class = "text-start">Item prioritário 3</td>
+                    </tr>
+                    <tr>
+                        <td class = "text-start">Item prioritário 4</td>
+                    </tr>
+                    <tr>
+                        <td class = "text-start">Item prioritário 5</td>
+                    </tr>
+                </table>
+                <p class = "text-muted">Endereço: {{abrigo.endereço}}</p>
+                <p class = "text-muted">Número de contato: {{abrigo.telefone}}</p>
+                <p class = "text-muted">Atualizado tanto tempo atrás</p>
+                <p class = "spasado"></p>
+            {% endfor %}
+    </main>
+{% endblock %}

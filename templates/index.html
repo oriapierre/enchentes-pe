@@ -5,15 +5,20 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Itens mais demandados para doação</h1>
-    <h3>Destinados às vítimas das enchentes em Recife</h3>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <h1>Itens mais demandados para doação</h1>
+    </head>
+    <body>
+    <h3>Destinados às vítimas das enchentes em Pernambuco</h3>
     <p class = "spasado"></p>
     <p class = "text-start">
-        A seguir está a lista completa dos abrigos provisórios no Recife, assim como os
+        A seguir está uma lista incompleta de abrigos provisórios e grupos voluntários na Região Metropolitana do Recife, assim como os
         materiais mais necessitados em cada um.
     </p>
     <p class = "text-start">
-        Os dados são enviados diretamente por cada abrigo, diariamente.
+        Os dados são enviados diretamente por cada grupo, sendo atualizados várias vezes por semana.
     </p>
     <p class = "text-start">
         Com essas informações, doadores poderão ajudar melhor as pessoas afetadas pelos desastres.
@@ -25,31 +30,35 @@
         </div>
         <button class="btn btn-primary" type="submit">Buscar</button>
     </form>
+
+
     <main class = "container py-5 text-center">
-            {% for abrigo in abrigos %}
-                <h2 class = "text-center" id = "titulo">{{abrigo.nome}}</h2>
-                <h3 class = "text-center" id = "bairro">{{abrigo.bairro}}</h3>
+            {% for lugar in lugares %}
+                <h2 class = "text-center" id = "titulo">{{lugar.nome}}</h2>
+                <h3 class = "text-center" id = "bairro">{{lugar.cidade}}, {{lugar.bairro}}</h3>
                 <table class = "table table-striped">
                     <tr>
-                        <td class = "text-start">Item prioritário 1</td>
+                        <td class = "text-start">{{lugar.item1}}</td>
                     </tr>
                     <tr>
-                        <td class = "text-start">Item prioritário 2</td>
+                        <td class = "text-start">{{lugar.item2}}</td>
                     </tr>
                     <tr>
-                        <td class = "text-start">Item prioritário 3</td>
+                        <td class = "text-start">{{lugar.item3}}</td>
                     </tr>
                     <tr>
-                        <td class = "text-start">Item prioritário 4</td>
+                        <td class = "text-start">{{lugar.item4}}</td>
                     </tr>
                     <tr>
-                        <td class = "text-start">Item prioritário 5</td>
+                        <td class = "text-start">{{lugar.item5}}</td>
                     </tr>
                 </table>
-                <p class = "text-muted">Endereço: {{abrigo.endereço}}</p>
-                <p class = "text-muted">Número de contato: {{abrigo.telefone}}</p>
-                <p class = "text-muted">Atualizado tanto tempo atrás</p>
+                <p class = "text-muted">Endereço: {{lugar.endereço}}</p>
+                <p class = "text-muted">Número de contato: {{lugar.telefone}}</p>
+                <p class = "text-muted">Atualizado no dia {{lugar.data}}</p>
                 <p class = "spasado"></p>
             {% endfor %}
+        </body>
     </main>
 {% endblock %}
+

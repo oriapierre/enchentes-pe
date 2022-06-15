@@ -16,6 +16,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
         <link rel="manifest" href="static/site.webmanifest">
 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="/static/styles.css" rel="stylesheet">
 
         <title>Observatório enchentes PE: {% block title %}{% endblock %}</title>
@@ -33,12 +34,6 @@
                 <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav me-auto mt-2">
                             <li class="nav-item"><a class="nav-link" href="/sobre">Sobre</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/ajude">Ajude</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/informacoes">Informações oficiais</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
-                        </ul>
-                        <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/outracoisa">Outra coisa</a></li>
                         </ul>
                 </div>
             </div>
@@ -48,17 +43,31 @@
             {% block main %}{% endblock %}
         </main>
 
-        <footer class="footer mt-auto py-3 bg-light" id = "footer1">
-            <div class="container">
-                <span class="text-muted">
-                    O Observatório de Enchentes Recife é um projeto voluntário que facilita a conexão entre doadores e abrigos recifenses, no contexto das tragédias de Maio/Junho 2022.
-                </span>
-                <p></p>
-              <span class="text-muted">Contato: observa.enchentes.pe@outlook.com </span>
-              <p></p>
-              <span class="text-muted">&copy; Observatório de Enchentes Recife 2022</span>
+        <footer class="bd-footer py-4 py-md-1 mt-5 bg-light">
+            <div class="container py-4 py-md-2 px-4 px-md-1">
+                <div class="row">
+                    <div class="col-lg-5 mb-3">
+                        <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="/" aria-label="Bootstrap">
+                            <link role="img" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+                            <span class="fs-5">Observatório de Enchentes Pernambuco</span>
+                        </a>
+                        <ul class="list-unstyled small text-muted">
+                            <li class="mb-2">Somos um projeto sem fins lucrativos ou políticos,
+                                visando conectar doadores com os abrigos provisórios e grupos voluntários
+                                à frente do atendimento às vítimas das enchentes em Pernambuco.
+                            </li>
+                            <li class="mb-2">
+                                observa.enchentes.pe@outlook.com
+                            </li>
+                            <li class="mb-2">
+                                &copy; Observatório de Enchentes Pernambuco 2022
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </footer>
+
 
     </body>
 

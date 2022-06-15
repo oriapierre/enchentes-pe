@@ -20,33 +20,13 @@ def index():
     """Homepage"""
     if request.method == "POST":
         bairro = request.form.get("bairro")
-        abrigos = db.execute("SELECT * FROM abrigos WHERE bairro = ?", bairro)
-        return render_template("index.html", abrigos=abrigos)
+        lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar WHERE bairro = ?", bairro)
+        return render_template("index.html", lugares=lugares)
     else:
-        abrigos = db.execute("SELECT * FROM abrigos")
-    return render_template("index.html", abrigos=abrigos)
+        lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar")
+    return render_template("index.html", lugares=lugares)
 
 @app.route("/sobre")
 def sobre():
     """Sobre o site"""
     return render_template("sobre.html")
-
-@app.route("/ajude")
-def ajude():
-    """ajude"""
-    return render_template("ajude.html")
-
-@app.route("/informacoes")
-def informacoes():
-    """informacoes"""
-    return render_template("informacoes.html")
-
-@app.route("/contato")
-def contato():
-    """contato"""
-    return render_template("contato.html")
-
-@app.route("/outracoisa")
-def outracoisa():
-    """outra coisa"""
-    return render_template("outracoisa.html")

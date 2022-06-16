@@ -35,7 +35,8 @@
     <main class = "container py-5 text-center">
             {% for lugar in lugares %}
                 <h2 class = "text-center" id = "titulo">{{lugar.nome}}</h2>
-                <h3 class = "text-center" id = "bairro">{{lugar.cidade}}, {{lugar.bairro}}</h3>
+                <h3 class = 'text-center'>{{lugar.tag}}</h3>
+                <h3 class = "text-center" id = "bairro">{{lugar.bairro}}, {{lugar.cidade}}</h3>
                 <table class = "table table-striped">
                     <tr>
                         <td class = "text-start">{{lugar.item1}}</td>
@@ -54,11 +55,10 @@
                     </tr>
                 </table>
                 <p class = "text-muted">Endereço: {{lugar.endereço}}</p>
-                <p class = "text-muted">Número de contato: {{lugar.telefone}}</p>
+                <p class = "text-muted">Número de contato: {{lugar.telefone}}  |  Instagram: {{lugar.insta}}</p>
                 <p class = "text-muted">Atualizado no dia {{lugar.data}}</p>
                 <p class = "spasado"></p>
             {% endfor %}
         </body>
     </main>
 {% endblock %}
-

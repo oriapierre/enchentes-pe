@@ -8,20 +8,25 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="/static/styles.css" rel="stylesheet">
-        <h1>Itens mais demandados para doação</h1>
+        <h3 class = 'display-3'>Itens mais demandados para doação</h3>
     </head>
     <body>
-    <h3>Destinados às vítimas das enchentes em Pernambuco</h3>
+    <h3>Destinados às vítimas das chuvas em Pernambuco</h3>
     <p class = "spasado"></p>
-    <p class = "text-start">
-        A seguir está uma lista incompleta de abrigos provisórios e grupos voluntários na Região Metropolitana do Recife, assim como os
+    <p class = "lead" align = 'left'>
+        <b>A crise das enchentes em Pernambuco ainda não acabou.</b>
+        Mais de 10 mil pessoas perderam suas casas apenas nas últimas semanas,
+        e a INMET e a APAC, agências governamentais de meteorologia,
+        continuam emitindo novos alertas de risco de alagamentos e deslizamentos quase diariamente para partes do estado.
+    </p>
+    <p class = "lead" align = 'left'>
+        Por isso, o Observatório, iniciativa voluntária formada por alunos do Centro de Informática da UFPE, está disponibilizando
+        uma lista atualizada de abrigos provisórios e grupos voluntários na Região Metropolitana do Recife, assim como os
         materiais mais necessitados em cada um.
     </p>
-    <p class = "text-start">
+    <p class = "lead" align = 'left'>
         Os dados são enviados diretamente por cada grupo, sendo atualizados várias vezes por semana.
-    </p>
-    <p class = "text-start">
-        Com essas informações, doadores poderão ajudar melhor as pessoas afetadas pelos desastres.
+        Com essas informações, doadores poderão ajudar melhor as pessoas afetadas pelas tragédias.
     </p>
     <p class = "spasado"></p>
     <form action="/" method="post">
@@ -35,7 +40,7 @@
     <main class = "container py-5 text-center">
             {% for lugar in lugares %}
                 <h2 class = "text-center" id = "titulo">{{lugar.nome}}</h2>
-                <h3 class = 'text-center'>{{lugar.tag}}</h3>
+                <h4 class = 'text-center'>{{lugar.tag}}</h4>
                 <h3 class = "text-center" id = "bairro">{{lugar.bairro}}, {{lugar.cidade}}</h3>
                 <table class = "table table-striped">
                     <tr>

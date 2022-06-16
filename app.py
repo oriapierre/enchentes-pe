@@ -20,7 +20,7 @@ def index():
     """Homepage"""
     if request.method == "POST":
         bairro = request.form.get("bairro")
-        lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar WHERE bairro = ?", bairro)
+        lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar WHERE bairro LIKE '%'|| ? || '%' ", bairro)
         return render_template("index.html", lugares=lugares)
     else:
         lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar")

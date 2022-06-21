@@ -23,7 +23,7 @@ def index():
         lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar WHERE bairro LIKE '%'|| ? || '%' ", bairro)
         return render_template("index.html", lugares=lugares)
     else:
-        lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar")
+        lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar ORDER BY demandas.data DESC")
     return render_template("index.html", lugares=lugares)
 
 @app.route("/sobre")

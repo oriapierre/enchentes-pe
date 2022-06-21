@@ -43,3 +43,8 @@ nav .navbar-brand .green
 {
     font-size: 20px;
 }
+
+
+a:not(.navbar-brand) {
+	text-decoration: none;
+}

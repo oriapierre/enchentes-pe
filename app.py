@@ -15,16 +15,21 @@ db = SQL("sqlite:///observa.db")
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    """Homepage"""
+    """Página inicial"""
+    return render_template("index.html")
+
+@app.route("/ajude", methods=["GET", "POST"])
+def ajude():
+    """página com demandas"""
     if request.method == "POST":
         bairro = request.form.get("bairro")
         lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar WHERE bairro LIKE '%'|| ? || '%' ", bairro)
-        return render_template("index.html", lugares=lugares)
+        return render_template("ajude.html", lugares=lugares)
     else:
         lugares = db.execute("SELECT * FROM lugares JOIN demandas ON lugares.id = demandas.id_lugar ORDER BY demandas.data DESC")
-    return render_template("index.html", lugares=lugares)
+    return render_template("ajude.html", lugares=lugares)
 
 @app.route("/sobre")
 def sobre():
